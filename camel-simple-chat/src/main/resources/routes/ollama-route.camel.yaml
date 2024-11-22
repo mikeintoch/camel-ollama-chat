@@ -1,0 +1,18 @@
+- route:
+    id: route-4034
+    from:
+      id: from-3967
+      uri: platform-http:/camel/chat
+      parameters: {}
+      steps:
+        - process:
+            id: process-3717
+            ref: createChatMessage
+        - to:
+            id: to-1442
+            uri: langchain4j-chat:myllm
+            parameters:
+              chatOperation: CHAT_MULTIPLE_MESSAGES
+        - log:
+            id: log-2925
+            message: ${body}
